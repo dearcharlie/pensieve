@@ -12,7 +12,7 @@ import {
   Sun,
   MessageSquare,
   Send,
-  FileTree,
+  FolderTree,
   PanelRightClose,
   PanelRightOpen,
 } from "lucide-react";
@@ -357,7 +357,7 @@ function App() {
         {/* Sidebar */}
         <aside className="sidebar">
           <div className="sidebar-header">
-            <FileTree size={16} />
+            <FolderTree size={16} />
             <span>笔记 ({stats?.note_count || 0})</span>
           </div>
           {renderSidebar()}
