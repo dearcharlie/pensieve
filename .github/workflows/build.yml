@@ -48,7 +48,9 @@ jobs:
             ${{ runner.os }}-pnpm-store-
 
       - name: Install frontend deps
-        run: pnpm install
+        run: |
+          pnpm approve-builds
+          pnpm install
 
       - name: Install Rust
         uses: dtolnay/rust-toolchain@stable
