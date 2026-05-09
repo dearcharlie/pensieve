@@ -23,3 +23,4 @@ uuid = { version = "1", features = ["v4"] }
 notify = "6"
 tokio = { version = "1", features = ["full"] }
 walkdir = "2"
+dirs-next = "2"

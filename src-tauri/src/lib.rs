@@ -124,7 +124,7 @@ fn read_note(path: String, state: tauri::State<AppState>) -> Result<String, Stri
     // security: ensure path is within notes_dir
     let canonical = std::fs::canonicalize(&full_path).map_err(|_| "Note not found".to_string())?;
     let base =
-        std::fs::canonicalize(&notes_dir).map_err(|_| "Notes directory not found".to_string())?;
+        std::fs::canonicalize(&*notes_dir).map_err(|_| "Notes directory not found".to_string())?;
     if !canonical.starts_with(&base) {
         return Err("Access denied".to_string());
     }
@@ -160,7 +160,7 @@ fn delete_note(path: String, state: tauri::State<AppState>) -> Result<(), String
     // security check
     let canonical = std::fs::canonicalize(&full_path).map_err(|_| "Note not found".to_string())?;
     let base =
-        std::fs::canonicalize(&notes_dir).map_err(|_| "Notes directory not found".to_string())?;
+        std::fs::canonicalize(&*notes_dir).map_err(|_| "Notes directory not found".to_string())?;
     if !canonical.starts_with(&base) {
         return Err("Access denied".to_string());
     }
